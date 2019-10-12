@@ -26,7 +26,7 @@ $(document).ready(function(){
       }).then(function(){
           console.log("Created new word");
           // To reload the page
-          // location.reload();
+          location.reload();
       })
       }
       else{
@@ -36,8 +36,8 @@ $(document).ready(function(){
   })
 
   // On click of mastered/learn again button
-  $(".mastered").on("click", function(event){
-    // $(document).on("click", ".table tbody tr td button.mastered", function(){
+  // $(".mastered").on("click", function(event){
+    $(document).on("click", ".table tbody tr td button.mastered", function(){
     console.log("Inside mastered button clicked");
     // event.preventDefault();
     var id = $(this).data("id");
@@ -58,7 +58,7 @@ $(document).ready(function(){
   }
   )
   // To reload the page
-  // location.reload(true);
+  location.reload(true);
   });
 
 
