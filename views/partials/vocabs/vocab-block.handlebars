@@ -1,0 +1,27 @@
+<tr>
+	<td>
+		{{dataValues.id}}
+	</td>
+<td>
+	{{dataValues.WORD}}
+</td>
+<td>
+	{{#if dataValues.MASTERED}}
+	<button class="btn btn-success mastered"id="update-btn" data-id="{{dataValues.id}}"data-category={{MASTERED}}>
+		MASTERED
+	</button>
+	{{else}}
+	<button class="btn btn-warning mastered"id="update-btn1" data-id="{{dataValues.id}}"data-category={{MASTERED}}>
+		LEARN AGAIN
+	</button>
+	{{/if}}
+</td>
+<td>
+	<button class="btn btn-danger delete"id="delete-btn" data-id="{{dataValues.id}}">
+		DELETE
+	</button>
+</td>
+</tr>
+
+
+	
