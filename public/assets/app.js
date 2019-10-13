@@ -85,19 +85,42 @@ $(document).ready(function(){
     
 })
 
+  // Function to get word by ID
+  function getWordById(id){
+    $.ajax("/api/word/" + id, {
+      type: "GET"
+    }).then(function(data){
+      console.log("word");
+      console.log(data.WORD);
+      return data.WORD;
+    })
+
+  }
 
 // Function to add new learner to learner table
 $(document).on("click", ".table tbody tr td button.learntBy", function(){
+  var word;
   console.log("Inside learner adding function");
 
   var id = $(this).data("id");
   console.log("ID : " + id);
   console.log($("textarea[data-text="+id+"]").val());
+  $.ajax("/api/word/" + id, {
+    type: "GET"
+  }).then(function(data){
+    console.log("word");
+    console.log(data.WORD);
+    word = data.WORD;
+  
+  
+  console.log("returned word : " + word);
   var newLearner = {
     learner: $("textarea[data-text="+id+"]").val(),
-    word: $("#input-word").val().trim()
+    word: word
   }
+  
   console.log("Learner name : " + newLearner.learner);
+  console.log("Learner name : " + newLearner.word);
 
   // Post learnt by name to learners table
   $.ajax("/api/learners/" + id, {
@@ -109,7 +132,8 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
   })
   $("textarea[data-text="+id+"]").val("");
   // location.reload(true);
-  })
+})
+})
 
   // View all learners name
   // $("#view-btn").on("click", function(event){

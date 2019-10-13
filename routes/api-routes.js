@@ -38,6 +38,17 @@ app.get("/api/learner/status/:learnersName", function(req, res){
     })
   })
 
+//   Server side to get a word by ID
+app.get("/api/word/:id", function(req, res){
+    db.Vocabs.findOne({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(result) {
+        res.json(result);
+      });
+})
+
     // Server side post script to add a new word
     app.post("/api/words", function(req, res){
         
