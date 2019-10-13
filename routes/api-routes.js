@@ -24,6 +24,35 @@ app.get("/", function(req, res){
 // })
       
   })
+//   SELECT LEARNERS.WORD FROM VOCABS RIGHT JOIN LEARNERS ON VOCABS.LEARNERID = LEARNERS.ID WHERE LEARNERS.NAME = "MAHISHA";
+    //To view learners' status
+app.get("/api/learner/status/:learnersName", function(req, res){
+
+    db.Learner.findAll({
+        where: {
+          NAME: req.params.learnersName
+        },
+        include: [db.Vocabs]
+      }).then(function(result) {
+        console.log("Combination query");
+        console.log(result);
+        res.json(result);
+      });
+
+    // db.Learner.findAll({
+    //     include: [{
+    //         model: db.Vocabs,
+    //         where: {
+    //             NAME: req.params.learnersName
+    //         }
+    //     }]
+    // }).then(function(result){
+    //     console.log("Combination query");
+    //     console.log(result);
+    //     res.json(result);
+    // })
+})
+
 
     //   To view all learners
   app.get("/api/learners", function(req, res){

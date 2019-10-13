@@ -109,7 +109,7 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
   // location.reload(true);
   })
 
-  // View learners status by name
+  // View all learners name
   // $("#view-btn").on("click", function(event){
     $(document).on("click", "#view-btn", function(event){
     event.preventDefault();
@@ -130,5 +130,24 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
 
     })
 
+  })
+
+  // View learners status
+  $(document).on("click", "#learner-btn", function(event){
+    event.preventDefault();
+    console.log("Inside learner-btn");
+    if($("#input-learner").val()){
+      var learnersName = $("#input-learner").val().trim();
+      $.ajax("/api/learner/status/" + learnersName, {
+        type: "GET"
+      }).then(function(data){
+        console.log("Combination query");
+        console.log(data);
+      })
+
+    }
+    else{
+      alert("Please enter learners' name to view status");
+    }
   })
 
