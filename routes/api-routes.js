@@ -9,20 +9,9 @@ app.get("/", function(req, res){
       var obj = {
           result: result
       };
-      console.log(obj.result);
+    //   console.log(obj.result);
       res.render("index", obj);
-  })
-
-//   db.Vocabs.findAll({
-//     include: [{
-//         model: db.Learner,
-//         where: { id: db.VocabsLearnerId }
-//     }]
-// }).then(function(result2){
-//     console.log("Combination query");
-//     console.log(result2);
-// })
-      
+  })      
   })
 //   SELECT LEARNERS.WORD FROM VOCABS RIGHT JOIN LEARNERS ON VOCABS.LEARNERID = LEARNERS.ID WHERE LEARNERS.NAME = "MAHISHA";
     //To view learners' status
@@ -38,19 +27,6 @@ app.get("/api/learner/status/:learnersName", function(req, res){
         console.log(result);
         res.json(result);
       });
-
-    // db.Learner.findAll({
-    //     include: [{
-    //         model: db.Vocabs,
-    //         where: {
-    //             NAME: req.params.learnersName
-    //         }
-    //     }]
-    // }).then(function(result){
-    //     console.log("Combination query");
-    //     console.log(result);
-    //     res.json(result);
-    // })
 })
 
 
@@ -94,7 +70,6 @@ app.put("/api/words/:id", function(req, res){
     var catalog = req.body.catalog;
 
       db.Vocabs.update({
-        WORD: req.body.word,
         MASTERED: catalog
       },{
           where: {

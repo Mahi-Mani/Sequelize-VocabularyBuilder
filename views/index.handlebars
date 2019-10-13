@@ -72,7 +72,7 @@
     
     {{#each result}}
     {{#unless MASTERED}}
-      {{> vocabs/vocab-block MASTERED=1}}
+      {{> vocabs/vocab-block MASTERED=true}}
     {{/unless}}
   {{/each}}
   
@@ -103,7 +103,7 @@
     
       {{#each result}}
     {{#if MASTERED}}
-      {{> vocabs/vocab-block MASTERED=0}}
+      {{> vocabs/vocab-block MASTERED=false}}
     {{/if}}
   {{/each}}
     

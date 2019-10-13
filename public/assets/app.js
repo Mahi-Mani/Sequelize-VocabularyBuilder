@@ -26,7 +26,7 @@ $(document).ready(function(){
       }).then(function(){
           console.log("Created new word");
           // To reload the page
-          location.reload();
+          // location.reload();
       })
       }
 
@@ -43,7 +43,9 @@ $(document).ready(function(){
     // event.preventDefault();
     var id = $(this).data("id");
     console.log(id);
-        var category = $(this).data("category");
+        var category = !($(this).data("category"));
+        console.log("category");
+        console.log(category);
           // Assigning new value
         var newCategory = {
           catalog: category
