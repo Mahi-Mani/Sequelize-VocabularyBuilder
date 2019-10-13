@@ -143,6 +143,17 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
       }).then(function(data){
         console.log("Combination query");
         console.log(data);
+        // Appending results to modal
+        var list = $("<ol>");
+        for(var i=0; i<data.length; i++){
+          list.append("<li>" + data[i].WORD + "</li>");
+        }
+        var name = $("<h1>");
+        name.append(learnersName);
+        $("#modal").modal();
+        $("#text").empty();
+        $("#text").append(name);
+        $("#text").append(list);
       })
 
     }
