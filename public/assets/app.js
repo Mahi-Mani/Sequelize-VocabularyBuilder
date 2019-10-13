@@ -26,7 +26,7 @@ $(document).ready(function(){
       }).then(function(){
           console.log("Created new word");
           // To reload the page
-          // location.reload();
+          location.reload();
       })
       }
 
@@ -85,18 +85,6 @@ $(document).ready(function(){
     
 })
 
-  // Function to get word by ID
-  function getWordById(id){
-    $.ajax("/api/word/" + id, {
-      type: "GET"
-    }).then(function(data){
-      console.log("word");
-      console.log(data.WORD);
-      return data.WORD;
-    })
-
-  }
-
 // Function to add new learner to learner table
 $(document).on("click", ".table tbody tr td button.learntBy", function(){
   var word;
@@ -111,16 +99,20 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
     console.log("word");
     console.log(data.WORD);
     word = data.WORD;
+    category = data.MASTERED;
   
   
   console.log("returned word : " + word);
+  console.log("returned stauts : " + category);
   var newLearner = {
     learner: $("textarea[data-text="+id+"]").val(),
-    word: word
+    word: word,
+    category: category
   }
   
   console.log("Learner name : " + newLearner.learner);
-  console.log("Learner name : " + newLearner.word);
+  console.log("Learner word : " + newLearner.word);
+  console.log("Learner category : " + newLearner.category);
 
   // Post learnt by name to learners table
   $.ajax("/api/learners/" + id, {
@@ -172,7 +164,10 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
         // Appending results to modal
         var list = $("<ol>");
         for(var i=0; i<data.length; i++){
-          list.append("<li>" + data[i].WORD + "</li>");
+          if(data[i].MASTERED)
+          list.append("<li>" + data[i].WORD + "  MASTERED" + "</li>");
+          else
+          list.append("<li>" + data[i].WORD + "  LEARNING" + "</li>");
         }
         var name = $("<h1>");
         name.append(learnersName);

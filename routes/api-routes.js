@@ -65,7 +65,8 @@ app.get("/api/word/:id", function(req, res){
         var id = req.params.id;
         db.Learner.create({
             WORD: req.body.word,
-            NAME: req.body.learner  
+            NAME: req.body.learner,
+            STATUS: req.body.category  
         },{
             where: {
                 id: id
