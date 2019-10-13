@@ -19,7 +19,7 @@ $(document).ready(function(){
               category: category
               };
 
-      // Post values
+      // Post new word to table
       $.ajax("/api/words", {
           type: "POST",
           data: newWord
@@ -29,6 +29,7 @@ $(document).ready(function(){
           location.reload();
       })
       }
+
       else{
         alert("Please enter a word");
       }
@@ -81,4 +82,42 @@ $(document).ready(function(){
     })
     
 })
+
+
+// Function to add new learner to learner table
+$(document).on("click", ".table tbody tr td button.learntBy", function(){
+  console.log("Inside learner adding function");
+
+  var id = $(this).data("id");
+  console.log("ID : " + id);
+  console.log($("textarea[data-text="+id+"]").val());
+  var newLearner = {
+    learner: $("textarea[data-text="+id+"]").val(),
+    word: $("#input-word").val().trim()
+  }
+  console.log("Learner name : " + newLearner.learner);
+
+  // Post learnt by name to learners table
+  $.ajax("/api/learners/" + id, {
+    type: "POST",
+    data: newLearner
+  }).then(function(){
+    console.log("New learner added");
+    // location.reload(true);
+  })
+  $("textarea[data-text="+id+"]").val("");
+  // location.reload(true);
+  })
+
+  // View learners status by name
+  $("#view-btn").on("click", function(event){
+    event.preventDefault();
+    $.ajax("/api/learners", {
+      type: "GET"
+    }).then(function(data){
+      console.log(data);
+      
+    })
+
+  })
 

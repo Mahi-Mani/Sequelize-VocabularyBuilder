@@ -41,6 +41,7 @@
   </div>
 
     <button type="button" class="btn btn-primary"id="submit-btn"><i class="fas fa-plus"></i>  Add Word</button>
+    <button type="button" class="btn btn-primary"id="view-btn">View Learners Status</button>
 
     </div>
     </div>
@@ -62,6 +63,7 @@
       <th scope="col">Word</th>
       <th scope="col">Status</th>
       <th scope="col">Delete</th>
+      <th scope="col">Learned by</th>
     </tr>
   </thead>
   <tbody>
@@ -108,4 +110,30 @@
 </div>
 <div class="col-md-2"></div>
 </div>
+
+{{!-- Table3 --}}
+    {{!-- Row --}}
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+    <table class="table table-dark"id="viewTable">
+  <thead>
+    <tr class="table-success">
+        <td class="table-success text-dark" colspan="4">LEARNERS</td>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">word Mastered</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  </tbody>
+</table>
+</div>
+<div class="col-md-2"></div>
+</div>
+
     </div>

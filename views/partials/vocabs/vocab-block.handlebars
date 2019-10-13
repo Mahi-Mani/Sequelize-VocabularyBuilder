@@ -1,24 +1,38 @@
 <tr>
+	{{!-- ID --}}
 	<td>
 		{{dataValues.id}}
 	</td>
+	{{!-- WORD entered by user --}}
 <td>
 	{{dataValues.WORD}}
 </td>
+{{!-- Button mastered/learn again --}}
 <td>
 	{{#if dataValues.MASTERED}}
-	<button class="btn btn-success mastered"id="update-btn" data-id="{{dataValues.id}}"data-category={{MASTERED}}>
+	<button class="btn btn-success mastered"id="update-btn" data-id="{{dataValues.id}}"data-category={{dataValues.MASTERED}}>
 		MASTERED
 	</button>
 	{{else}}
-	<button class="btn btn-warning mastered"id="update-btn1" data-id="{{dataValues.id}}"data-category={{MASTERED}}>
+	<button class="btn btn-warning mastered"id="update-btn1" data-id="{{dataValues.id}}"data-category={{dataValues.MASTERED}}>
 		LEARN AGAIN
 	</button>
 	{{/if}}
 </td>
+{{!-- Delete button --}}
 <td>
 	<button class="btn btn-danger delete"id="delete-btn" data-id="{{dataValues.id}}">
 		DELETE
+	</button>
+</td>
+{{!-- Text area --}}
+<td>
+	<textarea class="form-control learntBy" id="learntBy" rows="2" data-text="{{dataValues.id}}"></textarea>
+</td>
+<td>
+	{{!-- <input type="text"data-text="{{dataValues.id}}"id='"text" + "{{dataValues.id}}"'> --}}
+	<button class="btn btn-primary learntBy"id="submit-learner" data-id="{{dataValues.id}}">
+		SUBMIT
 	</button>
 </td>
 </tr>
