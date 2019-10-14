@@ -2,22 +2,22 @@
   "name": "Sequelize-VocabularyBuilder",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mahi-Mani/Vocabulary-Trainer.git"
+    "url": "git+https://github.com/Mahi-Mani/Sequelize-VocabularyBuilder.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mahi-Mani/Vocabulary-Trainer/issues"
+    "url": "https://github.com/Mahi-Mani/Sequelize-VocabularyBuilder/issues"
   },
-  "homepage": "https://github.com/Mahi-Mani/Vocabulary-Trainer#readme",
+  "homepage": "https://github.com/Mahi-Mani/Sequelize-VocabularyBuilder#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.1.0",
