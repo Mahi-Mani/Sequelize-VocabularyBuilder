@@ -161,13 +161,14 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
       }).then(function(data){
         console.log("Combination query");
         console.log(data);
+        if(data.length > 0){
         // Appending results to modal
         var list = $("<ol>");
         for(var i=0; i<data.length; i++){
-          if(data[i].MASTERED)
-          list.append("<li>" + data[i].WORD + "  MASTERED" + "</li>");
+          if(data[i].STATUS)
+          list.append("<li>" + data[i].WORD + "  : MASTERED" + "</li>");
           else
-          list.append("<li>" + data[i].WORD + "  LEARNING" + "</li>");
+          list.append("<li>" + data[i].WORD + "  : LEARNING" + "</li>");
         }
         var name = $("<h1>");
         name.append(learnersName);
@@ -175,11 +176,19 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
         $("#text").empty();
         $("#text").append(name);
         $("#text").append(list);
+      }
+      else{
+        // pTag = $("<p>");
+        $("#modal").modal();
+        $("#text").text("There is no such learner");
+      }
+      $("#input-learner").val("");
       })
-
+      
     }
     else{
       alert("Please enter learners' name to view status");
     }
   })
+
 
