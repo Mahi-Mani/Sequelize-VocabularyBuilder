@@ -18,12 +18,9 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": "Indeed@123",
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "port": 3306,
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql",
     "operatorsAliases": false
   }
 }
+
