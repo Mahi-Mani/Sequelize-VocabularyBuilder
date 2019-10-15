@@ -93,6 +93,7 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
   var id = $(this).data("id");
   console.log("ID : " + id);
   console.log($("textarea[data-text="+id+"]").val());
+  if($("textarea[data-text="+id+"]").val()){
   $.ajax("/api/word/" + id, {
     type: "GET"
   }).then(function(data){
@@ -125,6 +126,10 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
   $("textarea[data-text="+id+"]").val("");
   // location.reload(true);
 })
+  }
+  else{
+    alert("Enter a name to view status");
+  }
 })
 
   // View all learners name
@@ -178,7 +183,6 @@ $(document).on("click", ".table tbody tr td button.learntBy", function(){
         $("#text").append(list);
       }
       else{
-        // pTag = $("<p>");
         $("#modal").modal();
         $("#text").text("There is no such learner");
       }
