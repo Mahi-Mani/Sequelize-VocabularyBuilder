@@ -13,15 +13,15 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Requiring our models for syncing
-var db = require("./models");
+// Handlebars engine
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/api-routes.js")(app);
 
-// Handlebars engine
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// Requiring our models for syncing
+var db = require("./models");
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync().then(function() {
