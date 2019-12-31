@@ -31,12 +31,21 @@ module.exports = function (app) {
   // To view learners graph
   app.get("/api/learner/graph/:learnersName", function (req, res) {
     db.Learner.findAll({
+      group: ['createdAt'],
+      attributes: ['createdAt', db.Sequelize.fn('count', 1)],
       where: {
         NAME: req.params.learnersName
       }
-    }).then(function (result) {
-      res.json(result);
-    })
+    }).then(function(result){
+    res.json(result);
+  })
+    // db.Learner.findAll({
+    //   where: {
+    //     NAME: req.params.learnersName
+    //   }
+    // }).then(function (result) {
+    //   res.json(result);
+    // })
   })
 
 

@@ -67,22 +67,37 @@ $(document).ready(function(){
   // On click of view graph button
   $("#graph-btn").on("click", function(event) {
     event.preventDefault();
-    var xaxis = "";
+    var values = [];
     var dates = ['x'];
+    var tempDates = [];
+    var count = 1;
     console.log("Inside graph button");
     if($("#input-learner").val()){
       var learnersName = $("#input-learner").val().trim();
       $.ajax("/api/learner/graph/" + learnersName, {
         type: "GET"
       }).then(function(data){
+        values.push(learnersName);
         console.log("Graph query");
         console.log(data);
-        console.log(typeof(data[0].createdAt.substring(0, 10)));
         if(data.length > 0){
+          for(var i=0; i<data.length; i++){
+            tempDates.push(data[i].createdAt.substring(0, 10));
+            console.log(tempDates);
+          }
           for(var i=0; i<data.length; i++) {
-            dates.push(data[i].createdAt.substring(0, 10));
+            if(tempDates[i] === tempDates[i+1]){
+              count++;
+              console.log(`Count inside if loop: ${count}`);
+            }
+            else{
+            dates.push(tempDates[i]);
+            console.log(`Count inside else loop: ${count}`);
+            values.push(count);
+            }
           }
           console.log(dates);
+          
           var chart = c3.generate({
             bindto: "#chart",
             data: {
@@ -91,7 +106,7 @@ $(document).ready(function(){
                 columns: [
                     dates,
         //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-                    [learnersName, 10, 5, 12, 15, 7, 20]
+                    values
                 ]
             },
             axis: {
