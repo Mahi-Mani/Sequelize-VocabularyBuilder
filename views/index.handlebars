@@ -5,14 +5,16 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+{{!-- C3 JS --}}
 <link href="c3-0.7.10/c3.css" rel="stylesheet">
 <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
 <script src="c3-0.7.10/c3.min.js"></script>
+{{!-- Moment --}}
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
 {{!-- Code for header background --}}
-{{!-- <div id="bg" class="py-3 text-center"
-  style="background-image: url(https://ichef.bbci.co.uk/news/912/cpsprodpb/179AE/production/_103568669_gettyimages-579236076.jpg); border: 1px solid black;"> --}}
+<div id="bg" class="py-3 text-center"
+  style="background-image: url(https://ichef.bbci.co.uk/news/912/cpsprodpb/179AE/production/_103568669_gettyimages-579236076.jpg); border: 1px solid black;">
   {{!-- Jumbotron --}}
   <div class="container">
     <div class="row">
@@ -48,7 +50,7 @@
 
           <textarea class="form-control" id="input-learner" rows="2"></textarea><br>
           <button type="button" class="btn btn-primary" id="learner-btn" href="#modal">Learners status</button>
-          <button type="button" class="btn btn-primary" id="graph-btn">View Learner Graph</button>
+          <button type="button" class="btn btn-primary" id="graph-btn">Learning Progress</button>
 
         </div>
       </div>
@@ -160,7 +162,8 @@
     </div>
   </div>
       {{!-- Graph --}}
-      <div id="chart"></div>
+      <div id="chart" style="background-color: white;"></div>
+      <button type="button" class="btn btn-secondary" id="monthly-btn">Monthly</button>
     {{!-- <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8" id="chart">
