@@ -68,7 +68,7 @@ $(document).ready(function(){
   $("#graph-btn").on("click", function(event) {
     event.preventDefault();
     var xaxis = "";
-    var dates = "";
+    var dates = ['x'];
     console.log("Inside graph button");
     if($("#input-learner").val()){
       var learnersName = $("#input-learner").val().trim();
@@ -77,9 +77,10 @@ $(document).ready(function(){
       }).then(function(data){
         console.log("Graph query");
         console.log(data);
+        console.log(typeof(data[0].createdAt.substring(0, 10)));
         if(data.length > 0){
           for(var i=0; i<data.length; i++) {
-            dates = dates + "," + "'" + data[i].createdAt.substring(0, 10) + "'";
+            dates.push(data[i].createdAt.substring(0, 10));
           }
           console.log(dates);
           var chart = c3.generate({
@@ -88,7 +89,7 @@ $(document).ready(function(){
                 x: 'x',
         //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
                 columns: [
-                    ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+                    dates,
         //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
                     [learnersName, 10, 5, 12, 15, 7, 20]
                 ]
