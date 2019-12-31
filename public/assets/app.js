@@ -64,6 +64,69 @@ $(document).ready(function(){
   location.reload(true);
   });
 
+  // On click of view graph button
+  $("#graph-btn").on("click", function(event) {
+    event.preventDefault();
+    console.log("Inside graph button");
+    if($("#input-learner").val()){
+      var learnersName = $("#input-learner").val().trim();
+      $.ajax("/api/learner/graph/" + learnersName, {
+        type: "GET"
+      }).then(function(data){
+        console.log("Combination query");
+        console.log(data);
+        if(data.length > 0){
+          var chart = c3.generate({
+            bindto: "#chart",
+            data: {
+                x: 'x',
+        //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+                columns: [
+                    ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+        //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+                    [learnersName, 10, 5, 12, 15, 7, 20]
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%Y-%m-%d'
+                    }
+                }
+            }
+        });
+        }
+        else{
+          $("#modal").modal();
+          $("#text").text("There is no such learner");
+        }
+      $("#input-learner").val("");
+      })
+      
+    }
+    else{
+      alert("Please enter learners' name to view status");
+    }
+  //   var chart = c3.generate({
+  //     bindto: '#chart',
+  //     data: {
+  //       columns: [
+  //         ['data1', 30, 200, 100, 400, 150, 250],
+  //         ['data2', 50, 20, 10, 40, 15, 25]
+  //       ],
+  //       axes: {
+  //         data2: 'y2' // ADD
+  //       }
+  //     },
+  //     axis: {
+  //       y2: {
+  //         show: true // ADD
+  //       }
+  //     }
+  // });
+  })
+
 
   // On click of delete button
     // $(".btn-danger").on("click", function(event){
