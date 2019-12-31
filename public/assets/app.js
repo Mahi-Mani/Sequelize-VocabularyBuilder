@@ -67,15 +67,21 @@ $(document).ready(function(){
   // On click of view graph button
   $("#graph-btn").on("click", function(event) {
     event.preventDefault();
+    var xaxis = "";
+    var dates = "";
     console.log("Inside graph button");
     if($("#input-learner").val()){
       var learnersName = $("#input-learner").val().trim();
       $.ajax("/api/learner/graph/" + learnersName, {
         type: "GET"
       }).then(function(data){
-        console.log("Combination query");
+        console.log("Graph query");
         console.log(data);
         if(data.length > 0){
+          for(var i=0; i<data.length; i++) {
+            dates = dates + "," + "'" + data[i].createdAt.substring(0, 10) + "'";
+          }
+          console.log(dates);
           var chart = c3.generate({
             bindto: "#chart",
             data: {
