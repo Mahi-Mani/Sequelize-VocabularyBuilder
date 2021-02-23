@@ -9,6 +9,7 @@ module.exports = function (app) {
       var obj = {
         result: result
       };
+      console.log(obj.result);
       //   console.log(obj.result);
       res.render("index", obj);
     })
