@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "Indeed@123",
     "database": "VOCABS_DB",
     "host": "127.0.0.1",
     "port": 3306,
@@ -10,8 +10,8 @@
   },
   "test": {
     "username": "root",
-    "password": "password",
-    "database": "database_test",
+    "password": "Indeed@123",
+    "database": "VOCABS_DB",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql",
