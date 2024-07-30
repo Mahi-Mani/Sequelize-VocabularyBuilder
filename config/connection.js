@@ -13,18 +13,18 @@ var source = {
   },
 
   // jawsDB
-  jawsDB: {
-    host: "<host name>",
-    port: 3306,
-    user: "<name of user>",
-    password: "<password>",
-    database: "<name of database>"
-  }
+  // jawsDB: {
+  //   host: "<host name>",
+  //   port: 3306,
+  //   user: "<name of user>",
+  //   password: "<password>",
+  //   database: "<name of database>"
+  // }
 };
 
 var connection;
 
-if (source.jawsDB) {
+if (process.env.DB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL)
 }
 else{
