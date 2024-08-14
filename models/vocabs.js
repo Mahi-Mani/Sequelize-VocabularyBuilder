@@ -9,7 +9,10 @@ module.exports = function(sequelize, DataTypes){
             },
             defaultValue: true
         },
-        MASTERED: DataTypes.BOOLEAN
+        MASTERED: DataTypes.BOOLEAN,
+        meaning: {
+          type: DataTypes.STRING(100)
+        }
     })
 
     Vocabs.associate = function (models) {

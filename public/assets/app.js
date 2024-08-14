@@ -12,11 +12,13 @@ $(document).ready(function () {
     }
 
     //Validation
-    if ($("#input-word").val().trim()) {
+    if ($("#input-word").val().trim() && $("#word-meaning").val().trim()) {
       // Grabbing hold of value from user input
+      // console.log($("#word-meaning").val().trim());
       var newWord = {
         word: $("#input-word").val().trim(),
-        category: category
+        category: category,
+        meaning: $("#word-meaning").val().trim()
       };
 
       // Post new word to table

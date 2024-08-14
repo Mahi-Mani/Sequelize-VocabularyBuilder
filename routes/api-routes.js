@@ -74,7 +74,8 @@ module.exports = function (app) {
 
     db.Vocabs.create({
       WORD: req.body.word,
-      MASTERED: req.body.category
+      MASTERED: req.body.category,
+      meaning: req.body.meaning
     }).then(function (result) {
       res.json(result);
     })
