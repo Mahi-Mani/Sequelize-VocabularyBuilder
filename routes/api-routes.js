@@ -16,13 +16,13 @@ module.exports = function (app) {
   })
   //   SELECT LEARNERS.WORD FROM VOCABS RIGHT JOIN LEARNERS ON VOCABS.LEARNERID = LEARNERS.ID WHERE LEARNERS.NAME = "MAHISHA";
   //To view learners' status
-  app.get("/api/learner/status/:learnersName", function (req, res) {
+  app.get("/api/learner/status", function (req, res) {
 
-    db.Learner.findAll({
-      where: {
-        NAME: req.params.learnersName
-      },
-      include: [db.Vocabs]
+    db.Vocabs.findAll({
+      // where: {
+      //   NAME: req.params.learnersName
+      // }
+      // include: [db.Vocabs]
     }).then(function (result) {
       console.log("Combination query");
       console.log(result);

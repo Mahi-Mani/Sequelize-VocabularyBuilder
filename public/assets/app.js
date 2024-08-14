@@ -303,40 +303,68 @@ $(document).on("click", "#view-btn", function (event) {
 $(document).on("click", "#learner-btn", function (event) {
   event.preventDefault();
   console.log("Inside learner-btn");
-  if ($("#input-learner").val()) {
-    var learnersName = $("#input-learner").val().trim();
-    $.ajax("/api/learner/status/" + learnersName, {
-      type: "GET"
-    }).then(function (data) {
-      console.log("Combination query");
-      console.log(data);
-      if (data.length > 0) {
-        // Appending results to modal
-        var list = $("<ol>");
-        for (var i = 0; i < data.length; i++) {
-          if (data[i].STATUS)
-            list.append("<li>" + data[i].WORD + "  : MASTERED" + "</li>");
-          else
-            list.append("<li>" + data[i].WORD + "  : LEARNING" + "</li>");
+  // if ($("#input-learner").val()) {
+  // var learnersName = $("#input-learner").val().trim();
+  $.ajax("/api/learner/status/", {
+    type: "GET"
+  }).then(function (data) {
+    console.log("Combination query");
+    console.log(data);
+    if (data.length > 0) {
+      var learnCount = 0;
+      var masteredCount = 0;
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].MASTERED) {
+          masteredCount++;
+        } else {
+          learnCount++;
         }
-        var name = $("<h1>");
-        name.append(learnersName);
-        $("#modal").modal();
-        $("#text").empty();
-        $("#text").append(name);
-        $("#text").append(list);
       }
-      else {
-        $("#modal").modal();
-        $("#text").text("There is no such learner");
+      // Appending results to modal
+      var heading = $("<h1>");
+      var total = $("<h3>");
+      var learning = $("<h4>");
+      var mastered = $("<h4>");
+      learning.append("Learning: " + learnCount);
+      var lWords = $("<div>");
+      var mWords = $("<div>");
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].MASTERED)
+          mWords.append("<p>" + data[i].WORD + "</p>");
+        else
+          lWords.append("<p>" + data[i].WORD + "</p>");
       }
-      $("#input-learner").val("");
-    })
+      mastered.append("Mastered: " + masteredCount);
+      total.append("Total number of words: " + data.length);
+      heading.append("STATUS");
+      // var list = $("<ol>");
+      // for (var i = 0; i < data.length; i++) {
+      //   if (data[i].MASTERED)
+      //     list.append("<li>" + data[i].WORD + "</li>");
+      //   else
+      //     list.append("<li>" + data[i].WORD + "</li>");
+      // }
+      // var name = $("<h1>");
+      // name.append(learnersName);
+      $("#modal").modal();
+      $("#text").empty();
+      // $("#text").append(name);
+      $("#text").append(heading);
+      $("#text").append(total);
+      $("#text").append(learning);
+      $("#text").append(lWords);
+      $("#text").append(mastered);
+      $("#text").append(mWords);
+      $("#text").append(list);
+    }
+    else {
+      $("#modal").modal();
+      $("#text").text("There is no such learner");
+    }
+    $("#input-learner").val("");
+  })
 
-  }
-  else {
-    alert("Please enter learners' name to view status");
-  }
+  // }
 })
 
 
