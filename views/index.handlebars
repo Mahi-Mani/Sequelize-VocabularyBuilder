@@ -1,6 +1,9 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-{{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
+{{!--
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
@@ -10,7 +13,7 @@
 <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
 <script src="c3-0.7.10/c3.min.js"></script>
 {{!-- Moment --}}
- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
 {{!-- Code for header background --}}
 <div id="bg" class="py-3 text-center"
@@ -26,9 +29,11 @@
           <hr class="my-4">
           {{!-- Text area --}}
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Add word and category</label>
+            <label for="exampleFormControlTextarea1">What word would you like to add?</label>
             <textarea class="form-control" id="input-word" rows="2"></textarea><br>
-
+            <label for="exampleFormControlTextarea2">What does that mean?</label>
+            <textarea class="form-control" id="word-meaning" rows="2"></textarea><br>
+            <label for="exampleFormControlTextarea3">Are you learning? Or mastered already?</label>
             <div class="custom-control custom-radio custom-control-inline">
               <label>
                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="learning">
@@ -161,13 +166,13 @@
       </div>
     </div>
   </div>
-      {{!-- Graph --}}
-      {{!-- <div id="chart" style="background-color: white;"></div>
-      <button type="button" class="btn btn-secondary" id="monthly-btn">Monthly</button> --}}
-    {{!-- <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8" id="chart">
-        <p>SHow me the meaning</p>
-      </div>
-      <div class="col-md-2"></div>
-    </div> --}}
+  {{!-- Graph --}}
+  {{!-- <div id="chart" style="background-color: white;"></div>
+  <button type="button" class="btn btn-secondary" id="monthly-btn">Monthly</button> --}}
+  {{!-- <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" id="chart">
+      <p>SHow me the meaning</p>
+    </div>
+    <div class="col-md-2"></div>
+  </div> --}}
