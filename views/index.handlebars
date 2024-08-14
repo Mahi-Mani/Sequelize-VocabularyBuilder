@@ -21,8 +21,8 @@
   {{!-- Jumbotron --}}
   <div class="container">
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
+      {{!-- <div class="col-md-2"></div> --}}
+      <div class="col-md-6">
         <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
           <h1 class="display-4"><i class="fab fa-wordpress"></i>Vocabulary Builder</h1>
           <p class="lead">Build Your Vocabs here!</p>
@@ -31,9 +31,9 @@
           <div class="form-group">
             <label for="exampleFormControlTextarea1">What word would you like to add?</label>
             <textarea class="form-control" id="input-word" rows="2"></textarea><br>
-            <label for="exampleFormControlTextarea2">What does that mean?</label>
+            <label for="exampleFormControlTextarea2">What is the meaning?</label>
             <textarea class="form-control" id="word-meaning" rows="2"></textarea><br>
-            <label for="exampleFormControlTextarea3">Are you learning? Or mastered already?</label>
+            <label for="exampleFormControlTextarea3">Learning or Mastered?</label><br>
             <div class="custom-control custom-radio custom-control-inline">
               <label>
                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="learning">
@@ -51,15 +51,57 @@
           </div>
 
           <button type="button" class="btn btn-primary" id="submit-btn"><i class="fas fa-plus"></i> Add Word</button>
-          <button type="button" class="btn btn-primary" id="view-btn">View all Learners</button><br><br>
-
+          {{!-- <button type="button" class="btn btn-primary" id="view-btn">View all Learners</button><br><br>
+          <label for="exampleFormControlTextarea2">Enter a name to see status:</label>
           <textarea class="form-control" id="input-learner" rows="2"></textarea><br>
-          <button type="button" class="btn btn-primary" id="learner-btn" href="#modal">Learners status</button>
+          <button type="button" class="btn btn-primary" id="learner-btn" href="#modal">View status</button> --}}
           {{!-- <button type="button" class="btn btn-primary" id="graph-btn">Learning Progress</button> --}}
 
         </div>
       </div>
-      <div class="col-md-2"></div>
+      {{!-- Second jumbotron --}}
+      <div class="col-md-6">
+        <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
+          <h1 class="display-4"><i class="fab fa-wordpress"></i>Vocabulary Builder</h1>
+          <p class="lead">Check your stats here!</p>
+          <hr class="my-4">
+          {{!-- Text area --}}
+          {{!-- <div class="form-group">
+            <label for="exampleFormControlTextarea1">What word would you like to add?</label>
+            <textarea class="form-control" id="input-word" rows="2"></textarea><br>
+            <label for="exampleFormControlTextarea2">What does that mean?</label>
+            <textarea class="form-control" id="word-meaning" rows="2"></textarea><br>
+            <label for="exampleFormControlTextarea3">Are you learning? Or mastered already?</label><br>
+            <div class="custom-control custom-radio custom-control-inline">
+              <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="learning">
+                LEARNING
+              </label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+              <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="mastered">
+                MASTERED
+              </label>
+            </div>
+
+          </div> --}}
+
+          {{!-- <button type="button" class="btn btn-primary" id="submit-btn"><i class="fas fa-plus"></i> Add
+            Word</button> --}}
+          {{!-- <button type="button" class="btn btn-primary" id="view-btn">View all Learners</button><br><br> --}}
+          {{!-- <label for="exampleFormControlTextarea2">Enter a name to see status:</label> --}}
+          {{!-- <textarea class="form-control" id="input-learner" rows="2"></textarea><br> --}}
+          <p>Click the button below to view flashcards. If you come across a word whose meaning you want to remember, it
+            will be added to your learning table.</p>
+          <button type="button" class="btn btn-primary" id="view-btn">Flashcards</button>
+          <button type="button" class="btn btn-primary" id="learner-btn" href="#modal">View status</button>
+          {{!-- <button type="button" class="btn btn-primary" id="graph-btn">Learning Progress</button> --}}
+
+        </div>
+      </div>
+      {{!-- <div class="col-md-2"></div> --}}
     </div>
 
     {{!-- Table1 --}}
@@ -75,9 +117,9 @@
             <tr class="header">
               <th scope="col" class="text-light">#</th>
               <th scope="col" class="text-light">WORD</th>
-              <th scope="col" class="text-light">STATUS</th>
-              <th scope="col" class="text-light">DELETE</th>
-              <th scope="col" class="text-light">LEARNED BY</th>
+              <th scope="col" class="text-light">MEANING</th>
+              {{!-- <th scope="col" class="text-light">DELETE</th> --}}
+              {{!-- <th scope="col" class="text-light">LEARNED BY</th> --}}
             </tr>
           </thead>
           <tbody>
@@ -107,9 +149,9 @@
             <tr class="white-text lighten-2">
               <th scope="col" class="text-light">#</th>
               <th scope="col" class="text-light">WORD</th>
-              <th scope="col" class="text-light">STATUS</th>
-              <th scope="col" class="text-light">DELETE</th>
-              <th scope="col" class="text-light">LEARNED BY</th>
+              {{!-- <th scope="col" class="text-light">STATUS</th> --}}
+              {{!-- <th scope="col" class="text-light">DELETE</th> --}}
+              {{!-- <th scope="col" class="text-light">LEARNED BY</th> --}}
             </tr>
           </thead>
           <tbody>
