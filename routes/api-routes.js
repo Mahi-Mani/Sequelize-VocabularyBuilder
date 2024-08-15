@@ -52,7 +52,12 @@ module.exports = function (app) {
 
   //   To view all learners
   app.get("/api/learners", function (req, res) {
-    db.Learner.findAll({}).then(function (result) {
+    // db.Learner.findAll({}).then(function (result) {
+    //   console.log(result);
+    //   res.json(result);
+    // })
+    db.Vocabs.findAll({}).then(function (result) {
+      console.log("Inside /api/learners/ route");
       console.log(result);
       res.json(result);
     })

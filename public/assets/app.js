@@ -280,20 +280,20 @@ $(document).on("click", ".table tbody tr td button.learntBy", function () {
 // $("#view-btn").on("click", function(event){
 $(document).on("click", "#view-btn", function (event) {
   event.preventDefault();
-  $("#viewTable").removeClass("d-none");
+  // $("#viewTable").removeClass("d-none");
   console.log("Inside view button");
   $.ajax("/api/learners", {
     type: "GET"
   }).then(function (data) {
     console.log(data);
     // Creating rows and columns for retrived values
-    for (var i = 0; i < data.length; i++) {
-      var tr = $("<tr>");
-      tr.append("<td>" + data[i].id + "</tr>");
-      tr.append("<td>" + data[i].NAME + "</tr>");
-      tr.append("<td>" + data[i].WORD + "</tr>");
-      $("#viewTable").append(tr);
-    }
+    // for (var i = 0; i < data.length; i++) {
+    //   var tr = $("<tr>");
+    //   tr.append("<td>" + data[i].id + "</tr>");
+    //   tr.append("<td>" + data[i].NAME + "</tr>");
+    //   tr.append("<td>" + data[i].WORD + "</tr>");
+    //   $("#viewTable").append(tr);
+    // }
 
   })
 
