@@ -286,6 +286,9 @@ $(document).on("click", "#view-btn", function (event) {
     type: "GET"
   }).then(function (data) {
     console.log(data);
+    $("#flashcard").modal();
+    $("#words").append(data[0].WORD);
+    console.log("After modal");
     // Creating rows and columns for retrived values
     // for (var i = 0; i < data.length; i++) {
     //   var tr = $("<tr>");

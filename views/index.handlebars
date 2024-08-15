@@ -208,6 +208,24 @@
       </div>
     </div>
   </div>
+  {{!-- Modal for flashcards --}}
+  <div class="modal" tabindex="-1" role="dialog" id="flashcard">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <u>Flash Cards</u>
+        </div><br><br>
+        <div class="modal-body">
+          <p id="words"></p><br>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="next-btn">NEXT</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="meaning-btn">VIEW MEANING</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   {{!-- Graph --}}
   {{!-- <div id="chart" style="background-color: white;"></div>
   <button type="button" class="btn btn-secondary" id="monthly-btn">Monthly</button> --}}
