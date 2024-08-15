@@ -305,8 +305,16 @@ $(document).on("click", "#view-btn", function (event) {
       event.preventDefault();
       console.log("Inside next button");
       $("#words").empty();
+      $("#means").empty();
       $("#words").append(data[index % data.length].WORD);
       index++;
+    })
+
+    $(document).on("click", "#meaning-btn", function (event) {
+      event.preventDefault();
+      console.log("Inside view meaning button");
+      $("#means").empty();
+      $("#means").append(data[(index - 1) % data.length].meaning);
     })
   })
 })
