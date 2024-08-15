@@ -298,8 +298,17 @@ $(document).on("click", "#view-btn", function (event) {
     //   $("#viewTable").append(tr);
     // }
 
-  })
 
+    var index = 1;
+
+    $(document).on("click", "#next-btn", function (event) {
+      event.preventDefault();
+      console.log("Inside next button");
+      $("#words").empty();
+      $("#words").append(data[index % data.length].WORD);
+      index++;
+    })
+  })
 })
 
 // View learners status
