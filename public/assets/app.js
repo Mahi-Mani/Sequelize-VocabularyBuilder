@@ -306,6 +306,7 @@ $(document).on("click", "#view-btn", function (event) {
       console.log("Inside next button");
       $("#words").empty();
       $("#means").empty();
+      $("#message").empty();
       $("#words").append(data[index % data.length].WORD);
       index++;
     })
@@ -315,8 +316,26 @@ $(document).on("click", "#view-btn", function (event) {
       console.log("Inside view meaning button");
       $("#means").empty();
       $("#means").append(data[(index - 1) % data.length].meaning);
+      $("#message").empty();
+      $("#message").append("Adding " + data[(index - 1) % data.length].WORD + " to learning table!");
+      var sendData = {
+        id: data[(index - 1) % data.length].id,
+        MASTERED: false
+      }
+
+      $.ajax("/api/words/update/" + sendData.id, {
+        type: "PUT",
+        data: sendData
+      }).then(function () {
+        console.log("Updated value in vocabs table!");
+      })
     })
   })
+})
+
+$(document).on("click", "#close-btn", function (event) {
+  event.preventDefault();
+  location.reload();
 })
 
 // View learners status

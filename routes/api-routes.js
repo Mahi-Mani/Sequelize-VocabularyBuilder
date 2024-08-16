@@ -37,9 +37,9 @@ module.exports = function (app) {
       where: {
         NAME: req.params.learnersName
       }
-    }).then(function(result){
-    res.json(result);
-  })
+    }).then(function (result) {
+      res.json(result);
+    })
     // db.Learner.findAll({
     //   where: {
     //     NAME: req.params.learnersName
@@ -109,6 +109,19 @@ module.exports = function (app) {
 
     db.Vocabs.update({
       MASTERED: catalog
+    }, {
+      where: {
+        id: id
+      }
+    })
+  })
+
+  app.put("/api/words/update/:id", function (req, res) {
+    var id = req.params.id;
+    var value = req.body.MASTERED;
+
+    db.Vocabs.update({
+      MASTERED: value
     }, {
       where: {
         id: id
