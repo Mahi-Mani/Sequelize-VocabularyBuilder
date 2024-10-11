@@ -25,7 +25,7 @@ var source = {
 var connection;
 
 if (process.env.POSTGRES_URL) {
-  connection = mysql.createConnection(process.env.DB_URL)
+  connection = mysql.createConnection(process.env.POSTGRES_URL, {dialect: "postgres"})
 }
 else{
   // we use source.[name of connection] to hook into mysql

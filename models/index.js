@@ -9,7 +9,7 @@ var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env.DATABASE_URL, {
+  var sequelize = new Sequelize(process.env.POSTGRES_URL, {
     dialect: 'postgres', // Use 'postgres' for PostgreSQL
   });
 } else {
