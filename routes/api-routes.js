@@ -1,6 +1,5 @@
 // Requiring Vocabulary model
 var db = require("../models");
-
 module.exports = function (app) {
   //   Root route
   app.get("/", function (req, res) {
