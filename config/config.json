@@ -18,7 +18,7 @@
     "operatorsAliases": false
   },
   "production": {
-    "use_env_variable": "DB_URL",
+    "use_env_variable": "POSTGRES_URL",
     "dialect": "mysql",
     "operatorsAliases": false
   }
