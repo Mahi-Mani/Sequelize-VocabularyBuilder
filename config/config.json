@@ -19,7 +19,7 @@
   },
   "production": {
     "use_env_variable": "POSTGRES_URL",
-    "dialect": "mysql",
+    "dialect": "postgres",
     "operatorsAliases": false
   }
 }
