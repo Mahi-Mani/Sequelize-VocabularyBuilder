@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function (app) {
   //   Root route
   app.get("/", function (req, res) {
-
+    console.log(db);
     db.Vocabs.findAll({}).then(function (result) {
       var obj = {
         result: result
