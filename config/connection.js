@@ -24,12 +24,20 @@ var source = {
 
 var connection;
 
-if (process.env.POSTGRES_URL) {
-  connection = mysql.createConnection(process.env.POSTGRES_URL, {dialect: "postgres"})
+if (process.env.DB_URL) {
+  sequelize = new Sequelize(process.env.DB_URL);
 }
 else{
   // we use source.[name of connection] to hook into mysql
- connection = mysql.createConnection(source.localhost);
+  sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PW,
+    {
+      host: 'localhost',
+      dialect: 'postgres',
+    },
+  );  
 }
 
 connection.connect(function(err) {
