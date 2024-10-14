@@ -25,19 +25,11 @@ var source = {
 var connection;
 
 if (process.env.DB_URL) {
-  sequelize = new Sequelize(process.env.DB_URL);
+  connection = mysql.createConnection(process.env.DB_URL)
 }
 else{
   // we use source.[name of connection] to hook into mysql
-  sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PW,
-    {
-      host: 'localhost',
-      dialect: 'postgres',
-    },
-  );  
+  connection = mysql.createConnection(source.localhost);
 }
 
 connection.connect(function(err) {

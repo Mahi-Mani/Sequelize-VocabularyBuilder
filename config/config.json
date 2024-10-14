@@ -18,8 +18,8 @@
     "operatorsAliases": false
   },
   "production": {
-    "use_env_variable": "POSTGRES_URL",
-    "dialect": "postgres",
+    "use_env_variable": "DB_URL",
+    "dialect": "mysql",
     "operatorsAliases": false
   }
 }
